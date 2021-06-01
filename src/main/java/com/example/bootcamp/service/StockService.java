@@ -1,5 +1,6 @@
 package com.example.bootcamp.service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -49,4 +50,22 @@ public class StockService {
     public List<StockDTO> findAll() {
         return mapper.toTdo(repository.findAll());
     }
+
+    @Transactional
+    public StockDTO delete(Long id) {
+        StockDTO dto = this.findById(id);
+        repository.deleteById(dto.getId());
+        return dto;
+    }
+
+    @Transactional(readOnly = true)
+    public StockDTO findById(Long id) {
+        return repository.findById(id).map(mapper::toDto).orElseThrow(ResourceNotFound::new);
+    }
+
+    @Transactional(readOnly = true)
+    public List<StockDTO> findByToday() {
+        return repository.findByToday(LocalDate.now()).map(mapper::toTdo).orElseThrow(ResourceNotFound::new);
+    }
+
 }
