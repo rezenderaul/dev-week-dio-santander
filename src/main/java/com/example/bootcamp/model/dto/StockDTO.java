@@ -7,7 +7,6 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.jsonFormatVisitors.JsonFormatTypes;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

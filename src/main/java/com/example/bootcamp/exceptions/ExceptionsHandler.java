@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ExceptionsHandler {
     
 
-    @ExceptionHandler(BusinessException.class)
-    public ResponseEntity<StandardError> entityNotFound(BusinessException exception, HttpServletRequest request) {
+    @ExceptionHandler(ResourceNotFound.class)
+    public ResponseEntity<StandardError> entityNotFound(ResourceNotFound exception, HttpServletRequest request) {
         HttpStatus status = HttpStatus.NOT_FOUND;
-        return ResponseEntity.status(status).body(standard(status, MessageUtils.ENTITY_NOT_FOUND, request));
+        return ResponseEntity.status(status).body(this.standard(status, MessageUtils.ENTITY_NOT_FOUND, request));
     }
 
     private StandardError standard(HttpStatus status, String error, HttpServletRequest request) {
@@ -29,7 +29,6 @@ public class ExceptionsHandler {
             .message("exception")
             .path(request.getRequestURI())
             .build();
-            
     }
 
 }
