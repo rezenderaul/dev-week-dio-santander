@@ -18,4 +18,5 @@ public class StockDTO {
     private Double price;
     private Double variation;
     private LocalDate date;
+    
 }
