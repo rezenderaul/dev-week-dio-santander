@@ -1,22 +1,22 @@
 server:
-    port: 8080
-    servlet:
-        context-path: /bootcamp
+  port: 8080
+  servlet:
+    context-path: /bootcamp
 
 spring:
-    datasource:
-        driver-class-name: org.postgresql.Driver
-        url: ${SECRETS_URL}
-        username: ${SECRETS_USER}
-        password: ${SECRETS_PASS}
-    jpa:
-        show-sql: true
-        database-platform: org.hibernate.dialect.PostgreSQLDialect
-        generate-ddl: true
-        open-in-view: false
-        hibernate:
-            ddl-auto: none
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: ${SECRETS_URL}
+    username: ${SECRETS_USER}
+    password: ${SECRETS_PASS}
+  jpa:
+    show-sql: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    generate-ddl: true
+    open-in-view: false
+    hibernate:
+      ddl-auto: none
 
 application:
-    description: Projeto criado para o bootcamp DIO - Santander
-    version: 1.0
+  description: Projeto criado para o bootcamp DIO - Santander
+  version: 1.0

@@ -11,7 +11,7 @@ import java.time.Instant;
 
 @ControllerAdvice
 public class ExceptionsHandler {
-    
+
 
     @ExceptionHandler(ResourceNotFound.class)
     public ResponseEntity<StandardError> entityNotFound(ResourceNotFound exception, HttpServletRequest request) {
@@ -36,12 +36,12 @@ public class ExceptionsHandler {
 
     private StandardError standard(HttpStatus status, String error, HttpServletRequest request, String message) {
         return StandardError.builder()
-            .timeStamp(Instant.now())
-            .status(status.value())
-            .error(error)
-            .message(message)
-            .path(request.getRequestURI())
-            .build();
+                .timeStamp(Instant.now())
+                .status(status.value())
+                .error(error)
+                .message(message)
+                .path(request.getRequestURI())
+                .build();
     }
 
 }

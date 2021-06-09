@@ -1,27 +1,25 @@
 package com.example.bootcamp.service;
 
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
-
 import com.example.bootcamp.exceptions.BusinessException;
 import com.example.bootcamp.exceptions.ResourceNotFound;
 import com.example.bootcamp.mapper.StockMapper;
 import com.example.bootcamp.model.Stock;
 import com.example.bootcamp.model.dto.StockDTO;
 import com.example.bootcamp.repository.StockRepository;
-
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+
+@AllArgsConstructor
 @Service
 public class StockService {
-    
-    @Autowired
+
     private StockRepository repository;
 
-    @Autowired
     private StockMapper mapper;
 
     @Transactional
