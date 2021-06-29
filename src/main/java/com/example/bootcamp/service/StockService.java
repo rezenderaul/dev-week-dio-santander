@@ -46,7 +46,7 @@ public class StockService {
 
     @Transactional(readOnly = true)
     public List<StockDTO> findAll() {
-        return mapper.toTdo(repository.findAll());
+        return mapper.toDto(repository.findAll());
     }
 
     @Transactional
@@ -63,7 +63,7 @@ public class StockService {
 
     @Transactional(readOnly = true)
     public List<StockDTO> findByToday() {
-        return repository.findByToday(LocalDate.now()).map(mapper::toTdo).orElseThrow(ResourceNotFound::new);
+        return repository.findByToday(LocalDate.now()).map(mapper::toDto).orElseThrow(ResourceNotFound::new);
     }
 
 }
